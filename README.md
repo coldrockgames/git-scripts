@@ -1,9 +1,34 @@
 # git-scripts
 A set of scripts to make git-life easier
 
-> [!CAUTION]
-> The scripts are for [coldrock.games](https://www.coldrock.games) members only!\
-> It is strictly forbidden to copy, deploy, duplicate or use the scripts outside of the coldrock organization!\
-> See the LICENSE file for more information.
-
 # Setting up your scripts
+After cloning the repository, simply double-click the `install-scripts.cmd` file and follow the instructions on screen.
+
+This script will create a shortcut to `prompt.cmd` on your desktop, pre-configured for your working folder, with all PATH variables set.
+
+This is your main shell for working with the scripts. If you know the .net world, you may find this similar to the _Visual Studio Developer Command Prompt_, which gets set up, when you install Visual Studio.
+
+At the end of the script, you will be asked, whether you want to setup your identities now. Read on...
+
+# Setting up git clone identities
+If you answered the question from the installer with `y` (what you should), you get redirected to the `identity.cmd` script.
+
+To create a clone identity, the script needs some information from you:
+* A shortname of the identity (like `gh` for _github_ or `bb` for _bitbucket_)
+* The provider (currently github and bitbucket are supported)
+
+Then, depending on the provider, some or all of these informations are required:
+* The main branch name (github uses `main`, while bitbucket still uses `master`, depending on your bitbucket configuration)
+* Your user name (is part of the clone-url)
+* Your workspace name (bitbucket only)
+
+## Location of the identity scripts
+Your clone scripts will be created in your _local app_data folder_ in `coldrock.games.git-identities`. As an example, here is the screenshot of my identities folder. I use three identities, bitbucket, github personal and the coldrock organization.
+
+
+
+> [!NOTE]
+> You may start the identity script any time!\
+> It just creates a new pre-configured clone script to clone from a git provider (like github or bitbucket) without caring about user, organization or workspace names.\
+> THESE SCRIPTS DO NOT STORE YOUR PASSWORD! No security-topics here!\
+> They use whatever you have configured in your git-config for authentication and authorization. It's just simple .cmd scripts.
