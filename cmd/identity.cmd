@@ -1,5 +1,5 @@
 @ECHO OFF
-SET WI="%~dp0\tools\writein.exe"
+SET WI="%~dp0..\tools\writein.exe"
 
 SET IDHOME=%LOCALAPPDATA%\coldrock.games.git-identities
 IF NOT EXIST "%IDHOME%" MKDIR "%IDHOME%"

@@ -63,7 +63,7 @@ IF [%IDENTITY%]==[y] GOTO IDENTITIES
 GOTO END
 
 :IDENTITIES
-CALL identity.cmd
+CALL .\cmd\identity.cmd
 
 :END
 %WI% [y] . -- git-scripts installer finished --
