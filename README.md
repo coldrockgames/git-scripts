@@ -4,7 +4,7 @@ A set of scripts to make git-life easier
 # Setting up your scripts
 After cloning the repository, simply double-click the `install-scripts.cmd` file and follow the instructions on screen.
 
-This script will create a shortcut to `prompt.cmd` on your desktop, pre-configured for your working folder, with all PATH variables set.
+This script will create a shortcut on your desktop, pre-configured for your working folder, with all PATH variables set (temporarily, only in this script - it will _not_ modify any of your system configurations!).
 
 This is your main shell for working with the scripts. If you know the .net world, you may find this similar to the _Visual Studio Developer Command Prompt_, which gets set up, when you install Visual Studio.
 
