@@ -30,7 +30,7 @@ IF [%IDTYPE%]==[2] GOTO MAIN_BRANCH_NAME
 GOTO PROVIDER_ERROR
 
 :MAIN_BRANCH_NAME
-SET /P %MAINBRANCH%=Enter the main branch name of this provider (i.e. "main" or "master"):
+SET /P MAINBRANCH=Enter the main branch name of this provider (i.e. "main" or "master"):
 IF [%MAINBRANCH%]==[] GOTO MAIN_BRANCH_ERROR
 IF [%IDTYPE%]==[1] GOTO MAKE_GITHUB
 IF [%IDTYPE%]==[2] GOTO MAKE_BITBUCKET
@@ -107,4 +107,4 @@ SET /P ANOTHERID=Create another identity (y/n)?
 GOTO START_IDENTITY
 
 :END
-ECHO . -- Identity setup finished --
+%WI% [y] . -- Identity setup finished --
