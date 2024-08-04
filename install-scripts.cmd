@@ -35,7 +35,7 @@ IF NOT EXIST %GITMING% GOTO NOGITFORWINDOWS
 
 :CREATE_SHORTCUT
 REM create-shortcut.exe --work-dir "C:\path\to\files" --arguments "--myarg=myval" "C:\path\to\files\file.ext" "C:\path\to\shortcuts\shortcut.lnk"
-"%GITMING%\mingw64\bin\create-shortcut.exe" --work-dir "%WKD%" "%~dp0\prompt.cmd" "%USERPROFILE%\Desktop\%SCNAME%.lnk"
+"%GITMING%\mingw64\bin\create-shortcut.exe" --work-dir "%WKD%" "%~dp0cmd\prompt.cmd" "%USERPROFILE%\Desktop\%SCNAME%.lnk"
 GOTO STEP2
 
 :NOSHORTCUTNAME
