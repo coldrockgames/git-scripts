@@ -1,14 +1,17 @@
 @ECHO OFF
 SET REPO=%1
-SET BRANCH=%2
+SET OLDBRANCH=%2
+SET NEWBRANCH=%3
 
 IF [%REPO%]==[] GOTO ERROR
-IF [%BRANCH%]==[] SET BRANCH=master
+IF [%OLDBRANCH%]==[] SET OLDBRANCH=main
+IF [%NEWBRANCH%]==[] SET NEWBRANCH=%OLDBRANCH%
 
 ECHO --- PURGE ALL HISTORY FROM %REPO% REPOSITORY
 ECHO --------------------------------------------------------
-ECHO ---
-ECHO --- DANGER! DANGER! AND EVEN MORE DANGER!
+ECHO ---                                                  ---
+ECHO ---      DANGER! DANGER! AND EVEN MORE DANGER!       ---
+ECHO ---                                                  ---
 ECHO --------------------------------------------------------
 ECHO ---
 ECHO --- This is a not-reversable DESTRUCTIVE OPERATION
@@ -29,11 +32,11 @@ cd %REPO%
 git checkout --orphan latest_branch
 git add -A
 git commit -am "History purge. Repository reset."
-git branch -D %BRANCH%
-git branch -m %BRANCH%
-git push -f origin %BRANCH%
+git branch -D %OLDBRANCH%
+git branch -m %NEWBRANCH%
+git push -f origin %NEWBRANCH%
 git gc --aggressive --prune=all
-git push -u origin %BRANCH%
+git push -u origin %NEWBRANCH%
 cd..
 
 :FINISHLINE
@@ -41,13 +44,12 @@ ECHO --- Finished "%REPO%" ---
 GOTO FINISHSILENT
 
 :ERROR
-ECHO Error: No repository specified or repository "%REPO%" does not exist.
-ECHO Usage: purge-history repo [alternative_master_branch_name]
-
-ECHO If the master branch is named "master" on the server, you do not need
-ECHO to specify the alternative name.
-ECHO On some sites, "master" is named "main" these days. If your remote
-ECHO uses "main" as the master-branch-name, you should supply "main" as second
-ECHO argument to this script.
+ECHO . Error: No repository specified or repository "%REPO%" does not exist.
+ECHO . Usage: purge-history repo [old_main] [new_main]
+ECHO . 
+ECHO . You can use this script also to rename your main branch in one go
+ECHO . (but history will still be purged!)
+ECHO . If you do not specify any branch names, "main" will be used as default
+ECHO . for both, old and new.
 
 :FINISHSILENT
