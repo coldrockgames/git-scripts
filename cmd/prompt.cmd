@@ -11,7 +11,7 @@ ECHO         _\//\\\\\\\\\\\\/___/\\\\\\\\\\\_______\/\\\_______
 ECHO          __\////////////____\///////////________\///________
 ECHO           ___________________________________________________
 ECHO _
-SET PATH=%PATH%;%~dp0;%~dp0tools;%LOCALAPPDATA%\coldrock.games.git-identities
+SET PATH=%PATH%;%~dp0;%~dp0..\tools;%LOCALAPPDATA%\coldrock.games.git-identities
 SET SCRIPTHOME=%~dp0
 SET DEVHOME=%cd%
 CMD /K

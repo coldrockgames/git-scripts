@@ -4,7 +4,7 @@ SET WI="%~dp0..\tools\writein.exe"
 SET IDHOME=%LOCALAPPDATA%\coldrock.games.git-identities
 IF NOT EXIST "%IDHOME%" MKDIR "%IDHOME%"
 
-SET FREP="%~dp0\tools\frep.exe"
+SET FREP="%~dp0..\tools\frep.exe"
 SET ANOTHERID=y
 
 :START_IDENTITY
