@@ -1,8 +1,8 @@
 # ![git32](https://github.com/user-attachments/assets/e57eef6d-49d1-430f-8f62-5818384f7d28) git-scripts
-A set of scripts to make git-life easier
+A set of scripts to make git-life easier.
 
 # Setting up your scripts
-After cloning the repository, simply double-click the `install-scripts.cmd` file and follow the instructions on screen.
+After cloning the repository or unzipping the release, simply double-click the `install-scripts.cmd` file and follow the instructions on screen.
 
 This script will create a shortcut on your desktop, pre-configured for your working folder, with all PATH variables set (temporarily, only in this script - it will _not_ modify any of your system configurations!).
 
