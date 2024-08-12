@@ -15,6 +15,11 @@ SET WI="%~dp0\tools\writein.exe"
 %WI% [y] . [gr] git providers (like github and bitbucket)
 %WI% [y] . [gr] 
 
+SET IDHOME=%LOCALAPPDATA%\coldrock.games.git-identities
+IF NOT EXIST "%IDHOME%" MKDIR "%IDHOME%"
+ECHO %~dp0 >"%IDHOME%\git-scripts-location"
+COPY /Y "%~dp0\tools\gsupdatecheck.exe" "%IDHOME%\gsupdatecheck.exe" >NUL
+
 :ENTER_SHORTCUT_NAME
 SET /P SCNAME=Enter the name of the shortcut to create:
 IF [%SCNAME%]==[] GOTO NOSHORTCUTNAME

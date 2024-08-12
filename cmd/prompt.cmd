@@ -14,4 +14,8 @@ ECHO _
 SET PATH=%PATH%;%~dp0;%~dp0..\tools;%LOCALAPPDATA%\coldrock.games.git-identities
 SET SCRIPTHOME=%~dp0
 SET DEVHOME=%cd%
+SET IDHOME=%LOCALAPPDATA%\coldrock.games.git-identities
+COPY /Y "%SCRIPTHOME%..\tools\gsupdatecheck.exe" "%IDHOME%\gsupdatecheck.exe" >NUL
+"%IDHOME%\gsupdatecheck.exe"
+
 CMD /K
