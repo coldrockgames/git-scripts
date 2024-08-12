@@ -18,4 +18,5 @@ SET IDHOME=%LOCALAPPDATA%\coldrock.games.git-identities
 REM COPY /Y "%SCRIPTHOME%..\tools\gsupdatecheck.exe" "%IDHOME%\gsupdatecheck.exe" >NUL 2>NUL
 REM "%IDHOME%\gsupdatecheck.exe"
 
-CMD /K "%IDHOME%\gsupdatecheck.exe"
+REM CMD /K "%IDHOME%\gsupdatecheck.exe"
+CMD /K "%~dp0..\tools\gsupdatecheck.exe"
