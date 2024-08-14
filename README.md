@@ -1,6 +1,11 @@
 # ![git32](https://github.com/user-attachments/assets/e57eef6d-49d1-430f-8f62-5818384f7d28) git-scripts
 A set of scripts to make git-life easier.
 
+These are the scripts we use internally at _coldrock.games_. The repository is public to allow my students and course participants to gain access to them.
+Feel free to give them a shot, they solve almost all git related tasks with ease.
+
+There's also a `pdf` cheatsheet available with a short help for each of the available scripts here.
+
 # Setting up your scripts
 After cloning the repository, simply double-click the `install-scripts.cmd` file and follow the instructions on screen.
 
