@@ -17,13 +17,13 @@ There's also a `pdf` cheatsheet available with a short help for each of the avai
 > Our internal members are well-trained with the scripts, and we all use them with great success, but of course, the same risks exist as with GUI clients for Git. If you use them incorrectly, you may damage your data.
 
 # Setting up your scripts
-After cloning the repository, simply double-click the `install-scripts.cmd` file and follow the instructions on screen.
+After cloning the repository, simply double-click the `install-scripts.cmd` file and follow the instructions on-screen.
 
-This script will create a shortcut on your desktop, pre-configured for your working folder, with all PATH variables set (temporarily, only in this script - it will _not_ modify any of your system configurations!).
+This script will create a shortcut on your desktop, pre-configured for your working folder, with all PATH variables set (temporarily, only in this script—it will _not_ modify any of your system configurations!).
 
-This is your main shell for working with the scripts. If you know the .net world, you may find this similar to the _Visual Studio Developer Command Prompt_, which gets set up, when you install Visual Studio.
+This is your main shell for working with the scripts. If you’re familiar with the .NET world, you may find this similar to the _Visual Studio Developer Command Prompt_, which is set up when you install Visual Studio.
 
-At the end of the script, you will be asked, whether you want to setup your identities now. Read on...
+At the end of the script, you will be asked, whether you want to set up your identities now. Read on...
 
 # Setting up git clone identities
 If you answered the question from the installer with `y` (which you should), you will be redirected to the `identity.cmd` script.
