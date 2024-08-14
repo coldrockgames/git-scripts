@@ -1,3 +1,5 @@
+![coldrock-banner-itch-960x110](https://github.com/user-attachments/assets/2b8c07be-5c83-4f21-9b38-6df178758918)
+
 # ![git32](https://github.com/user-attachments/assets/e57eef6d-49d1-430f-8f62-5818384f7d28) git-scripts
 A set of scripts to make git-life easier.
 
@@ -5,6 +7,8 @@ These are the scripts we use internally at _coldrock.games_. The repository is p
 Feel free to give them a shot, they solve almost all git related tasks with ease.
 
 There's also a `pdf` cheatsheet available with a short help for each of the available scripts here.
+
+### Want to know more? Head over to the [Discussions](https://github.com/coldrockgames/git-scripts/discussions)!
 
 > [!CAUTION]
 > **DISCLAIMER**\
