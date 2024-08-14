@@ -13,6 +13,12 @@ At the end of the script, you will be asked, whether you want to setup your iden
 # Setting up git clone identities
 If you answered the question from the installer with `y` (what you should), you get redirected to the `identity.cmd` script.
 
+> [!TIP]
+> A clone identity does **NOT** require your password, there is nothing creepy going on!\
+> It just creates a pre-configured `cloneXY` script for you, which holds the base URL for
+> the git provider (like github or bitbucket).\
+> Those urls mostly contain your username, that's why the script asks for it.
+
 To create a clone identity, the script needs some information from you:
 * A shortname of the identity (like `gh` for _github_ or `bb` for _bitbucket_)
 * The provider (currently github and bitbucket are supported)
