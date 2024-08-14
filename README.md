@@ -6,6 +6,12 @@ Feel free to give them a shot, they solve almost all git related tasks with ease
 
 There's also a `pdf` cheatsheet available with a short help for each of the available scripts here.
 
+> [!CAUTION]
+> **DISCLAIMER**\
+> As it's the nature of these scripts to perform _writing_ operations on your repositories, there _is a chance_, that you damage your repository/code base when using them wrong.
+> Therefore we want to state clearly, that we are in no way responsible, neither directly nor indirectly, for any damage that occurs to your repository or codebase or computer when using the scripts.
+> Our internal members are well trained with the scripts and we all use them with great success, but of course, here's the same danger alive, that also comes with GUI clients for Git. If you use them wrong, you may damage your data.
+
 # Setting up your scripts
 After cloning the repository, simply double-click the `install-scripts.cmd` file and follow the instructions on screen.
 
