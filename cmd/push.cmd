@@ -73,10 +73,7 @@ ECHO -p parameter will cause to run the pull script before pushing.
 ECHO -a and -p can also be specified as a single -ap or -pa parameter.
 
 :END
-IF [%REPO2%]==[] GOTO FINISHLINE
-IF [%REPO%]==[%REPO2%] GOTO FINISHLINE
-CALL push.cmd %REPO2% %2
-GOTO FINISHSILENT
+GOTO FINISHLINE
 
 :ALL
 FOR /D %%G in ("*") DO CALL push.cmd %%~nxG %2 %3 %4

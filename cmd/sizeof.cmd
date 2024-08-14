@@ -18,12 +18,6 @@ ECHO Error: No repository specified or repository "%REPO%" does not exist.
 ECHO Usage: sizeof repo
 
 :END
-IF [%REPO2%]==[] GOTO FINISHLINE
-IF [%REPO%]==[%REPO2%] GOTO FINISHLINE
-CALL sizeof.cmd %REPO2%
-GOTO FINISHSILENT
-
-:FINISHLINE
 ECHO --- Finished "%REPO%" ---
 
 :FINISHSILENT

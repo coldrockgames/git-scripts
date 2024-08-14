@@ -30,7 +30,7 @@ git submodule foreach "git fetch"
 git submodule foreach "git merge"
 cd..
 CALL push.cmd %REPO% "submodule update"
-GOTO END_NO_STEP_OUT
+GOTO FINISHLINE
 
 :AND
 ECHO --- RUNNING SUBMODULE-UPDATE ON ANDROID REPOS ---
@@ -48,12 +48,6 @@ GOTO FINISHSILENT
 
 :END
 cd..
-
-:END_NO_STEP_OUT
-IF [%REPO2%]==[] GOTO FINISHLINE
-IF [%REPO%]==[%REPO2%] GOTO FINISHLINE
-CALL pull.cmd %REPO2% %2
-GOTO FINISHSILENT
 
 :FINISHLINE
 ECHO --- Finished "%REPO%" ---

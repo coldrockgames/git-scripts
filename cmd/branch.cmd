@@ -68,12 +68,6 @@ ECHO -D will delete the branch locally AND on the remote!
 ECHO NOTE on submodules: This script does not modify submodules in any way!
 
 :END
-IF [%REPO2%]==[] GOTO FINISHLINE
-IF [%REPO%]==[%REPO2%] GOTO FINISHLINE
-CALL branch.cmd %REPO2% %2 %3
-GOTO FINISHSILENT
-
-:FINISHLINE
 ECHO --- Finished "%REPO%" ---
 
 :FINISHSILENT

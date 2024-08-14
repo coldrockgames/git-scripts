@@ -58,12 +58,6 @@ ECHO after merging. Supply -2 as last argument, to switch to the second afterwar
 ECHO NOTE on submodules: This script does not modify submodules in any way!
 
 :END
-IF [%REPO2%]==[] GOTO FINISHLINE
-IF [%REPO%]==[%REPO2%] GOTO FINISHLINE
-CALL merge.cmd %REPO2% %2 %3 %4
-GOTO FINISHSILENT
-
-:FINISHLINE
 ECHO --- Finished "%REPO%" ---
 
 :FINISHSILENT

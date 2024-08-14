@@ -37,12 +37,6 @@ ECHO Error: No repository specified or repository "%REPO%" does not exist.
 ECHO Usage: tag repo tagname [commitId]
 
 :END
-IF [%REPO2%]==[] GOTO FINISHLINE
-IF [%REPO%]==[%REPO2%] GOTO FINISHLINE
-CALL tag.cmd %REPO2% %2 %3
-GOTO FINISHSILENT
-
-:FINISHLINE
 ECHO --- Finished "%REPO%" ---
 
 :FINISHSILENT

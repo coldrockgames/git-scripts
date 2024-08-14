@@ -27,12 +27,7 @@ ECHO Specify root as second parameter to scan subfolders even when they
 ECHO are not a repository.
 
 :END
-IF [%REPO2%]==[] GOTO FINISHLINE
-IF [%REPO%]==[%REPO2%] GOTO FINISHLINE
-REM The "root" as second parameter tells the script, it is no longer in root folder,
-REM so SCANSUB may run
-CALL status.cmd %REPO2% root
-GOTO FINISHSILENT
+GOTO FINISHLINE
 
 :SCANSUB
 ECHO --- Scanning sub folder %REPO% ---

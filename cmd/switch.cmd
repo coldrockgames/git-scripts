@@ -25,12 +25,6 @@ ECHO Usage: switch repo branchname [-m]
 ECHO -m will merge any local changes of your current branch into the new branch
 
 :END
-IF [%REPO2%]==[] GOTO FINISHLINE
-IF [%REPO%]==[%REPO2%] GOTO FINISHLINE
-CALL switch.cmd %REPO2% %2 %3
-GOTO FINISHSILENT
-
-:FINISHLINE
 ECHO --- Finished "%REPO%" ---
 
 :FINISHSILENT
