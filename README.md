@@ -37,7 +37,7 @@ If you answered the question from the installer with `y` (which you should), you
 
 To create a clone identity, the script needs some information from you:
 * A shortname of the identity (like `gh` for _github_ or `bb` for _bitbucket_)
-* The provider (currently github and bitbucket are supported)
+* The provider (currently GitHub, GitLab and Bitbucket are supported)
 
 Then, depending on the provider, some or all of these informations are required:
 * The main branch name (github uses `main`, while bitbucket still uses `master`, depending on your bitbucket configuration)
