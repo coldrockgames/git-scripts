@@ -11,12 +11,16 @@ ECHO         _\//\\\\\\\\\\\\/___/\\\\\\\\\\\_______\/\\\_______
 ECHO          __\////////////____\///////////________\///________
 ECHO           ___________________________________________________
 ECHO _
-SET PATH=%PATH%;%~dp0;%~dp0..\tools;%LOCALAPPDATA%\coldrock.games.git-identities
+SET PATH=%PATH%;%LOCALAPPDATA%\coldrock.games.git-identities;%~dp0;%~dp0..\tools
 SET SCRIPTHOME=%~dp0
 SET DEVHOME=%cd%
 SET IDHOME=%LOCALAPPDATA%\coldrock.games.git-identities
-REM COPY /Y "%SCRIPTHOME%..\tools\gsupdatecheck.exe" "%IDHOME%\gsupdatecheck.exe" >NUL 2>NUL
-REM "%IDHOME%\gsupdatecheck.exe"
+COPY /Y "%SCRIPTHOME%..\tools\gsupdatecheck.exe" "%IDHOME%\gsupdatecheck.exe" >NUL 2>&1
+REM CMD /K "%IDHOME%\gsupdatecheck.exe" 2>nul
+"%IDHOME%\gsupdatecheck.exe" 2>nul
+IF %ERRORLEVEL% NEQ 0 (
+	writeIn [r] Can't check for script updates. Another script tab seems to be running the update check.
+)
+CMD /K
 
-REM CMD /K "%IDHOME%\gsupdatecheck.exe"
-CMD /K "%~dp0..\tools\gsupdatecheck.exe"
+REM CMD /K "%~dp0..\tools\gsupdatecheck.exe"
