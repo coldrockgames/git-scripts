@@ -19,7 +19,7 @@ There's also a `pdf` cheatsheet available with a short help for each of the avai
 # Setting up your scripts
 After cloning the repository, simply double-click the `install-scripts.cmd` file and follow the instructions on-screen.
 
-This script will create a shortcut on your desktop, pre-configured for your working folder, with all PATH variables set (temporarily, only in this script—it will _not_ modify any of your system configurations!).
+This script will create a shortcut on your desktop, pre-configured for your working folder, with all PATH variables set (temporarily, only in this script. It will _not_ modify any of your system configurations!).
 
 This is your main shell for working with the scripts. If you’re familiar with the .NET world, you may find this similar to the _Visual Studio Developer Command Prompt_, which is set up when you install Visual Studio.
 
@@ -51,6 +51,5 @@ Your clone scripts will be created in your _local app_data folder_ in `coldrock.
 
 > [!NOTE]
 > You may start the identity script at any time!\
-> It simply creates a new pre-configured clone script to clone from a git provider (like github or bitbucket) without caring about user, organization or workspace names.\
-> THESE SCRIPTS DO NOT STORE YOUR PASSWORD! No security concerns here!\
-> They use whatever you have configured in your git-config for authentication and authorization. They are just simple .cmd scripts.
+> You are not tied to the installer script for your identities.
+> Just run `identity` from a script prompt to create a new one!

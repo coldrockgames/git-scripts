@@ -24,9 +24,10 @@ SET /P SHORTNAME=Enter the shortname for the identity:
 IF [%SHORTNAME%]==[] GOTO SHORTNAME_ERROR
 
 :ENTER_PROVIDER
-SET /P IDTYPE=Enter 1 for github or 2 for bitbucket:
+SET /P IDTYPE=Enter 1 for github, 2 for bitbucket or 3 for gitlab:
 IF [%IDTYPE%]==[1] GOTO MAIN_BRANCH_NAME
 IF [%IDTYPE%]==[2] GOTO MAIN_BRANCH_NAME
+IF [%IDTYPE%]==[3] GOTO MAIN_BRANCH_NAME
 GOTO PROVIDER_ERROR
 
 :MAIN_BRANCH_NAME
@@ -34,6 +35,7 @@ SET /P MAINBRANCH=Enter the main branch name of this provider (i.e. "main" or "m
 IF [%MAINBRANCH%]==[] GOTO MAIN_BRANCH_ERROR
 IF [%IDTYPE%]==[1] GOTO MAKE_GITHUB
 IF [%IDTYPE%]==[2] GOTO MAKE_BITBUCKET
+IF [%IDTYPE%]==[3] GOTO MAKE_GITLAB
 GOTO END
 
 :MAKE_GITHUB
@@ -61,6 +63,17 @@ COPY /Y "%~dp0\clone.cmd" %DESTCMD%
 %FREP% %DESTCMD% "**PROVIDER**" "ECHO Cloning %%REPO%% from bitbucket/%BBWSP%..." -l
 GOTO COMMON_REPLACE
 
+:MAKE_GITLAB
+:ENTER_GLUSER
+SET GPROV=gitlab
+SET /P GLUSER=Enter your gitlab user name or project name:
+IF [%GLUSER%]==[] GOTO GLUSER_ERROR
+SET DESTCMD="%IDHOME%\clone%SHORTNAME%.cmd"
+COPY /Y "%~dp0\clone.cmd" %DESTCMD%
+%FREP% %DESTCMD% "**USER**" "SET SERVER_URL=https://gitlab.com/%GLUSER%" -l
+%FREP% %DESTCMD% "**PROVIDER**" "ECHO Cloning %%REPO%% from gitlab/%GLUSER%..." -l
+GOTO COMMON_REPLACE
+
 :COMMON_REPLACE
 %FREP% %DESTCMD% "GOTO ENDBLOCKED" "REM clone script for %GPROV%"
 %FREP% %DESTCMD% "**MAIN**" "%MAINBRANCH%"
@@ -75,7 +88,7 @@ GOTO MAIN_BRANCH_NAME
 
 :PROVIDER_ERROR
 %WI% [r] .
-%WI% [r] . You must enter 1 or 2!
+%WI% [r] . You must enter 1, 2 or 3!
 %WI% [r] .
 GOTO ENTER_PROVIDER
 
@@ -102,6 +115,12 @@ GOTO ENTER_BBUSER
 %WI% [r] . You must enter your bitbucket workspace name to create an identity!
 %WI% [r] .
 GOTO ENTER_BBWORKSPACE
+
+:GLUSER_ERROR
+%WI% [r] .
+%WI% [r] . You must enter your gitlab user name or project name to create an identity!
+%WI% [r] .
+GOTO ENTER_GLUSER
 
 :NEXT_IDENTITY
 SET /P ANOTHERID=Create another identity (y/n)?

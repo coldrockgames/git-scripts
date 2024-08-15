@@ -20,14 +20,14 @@ cd..
 
 :CHECKIGNORE
 IF EXIST "%REPO%\.gitignore" GOTO CHECKBRANCH
-IF NOT EXIST "%SCRIPTHOME%\.gitignore" GOTO WARN
+IF NOT EXIST "%SCRIPTHOME%..\.gitignore" GOTO WARN
 ECHO Copying ignore file...
-copy "%SCRIPTHOME%\*.gitignore" "%REPO%"
-copy "%SCRIPTHOME%\*.gitattributes" "%REPO%"
+copy "%SCRIPTHOME%..\*.gitignore" "%REPO%"
+copy "%SCRIPTHOME%..\*.gitattributes" "%REPO%"
 GOTO ADDNOW
 
 :WARN
-ECHO Warning: %SCRIPTHOME%\.gitignore not found. The clone will have no .gitignore and .gitattributes settings!
+ECHO Warning: %SCRIPTHOME%..\.gitignore not found. The clone will have no .gitignore and .gitattributes settings!
 GOTO CHECKBRANCH
 
 :ADDNOW
