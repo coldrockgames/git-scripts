@@ -8,7 +8,7 @@ Feel free to give them a shot; they solve almost all git-related tasks with ease
 
 There's also a `pdf` cheatsheet available with a short help for each of the available scripts here.
 
-### Have a question before you start? Head over to the [Discussions](https://github.com/coldrockgames/git-scripts/discussions)!
+### Got a question before you start? Head over to the [Discussions](https://github.com/coldrockgames/git-scripts/discussions)!
 
 > [!CAUTION]
 > **DISCLAIMER**\
@@ -40,7 +40,7 @@ To create a clone identity, the script needs some information from you:
 
 Then, depending on the provider, some or all of these informations are required:
 * The main branch name (github uses `main`, while bitbucket still uses `master`, depending on your bitbucket configuration)
-* Your user name (is part of the clone-url)
+* Your user name (which is part of the clone URL)
 * Your workspace name (bitbucket only)
 
 ## Location of the identity scripts
