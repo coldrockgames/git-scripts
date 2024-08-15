@@ -51,5 +51,5 @@ Your clone scripts will be created in your _local app_data folder_ in `coldrock.
 
 > [!NOTE]
 > You may start the identity script at any time!\
-> You are not tied to the installer script for your identities.
+> You are not tied to the installer script for your identities.\
 > Just run `identity` from a script prompt to create a new one!
