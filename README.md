@@ -40,7 +40,7 @@ To create a clone identity, the script needs some information from you:
 
 Then, depending on the provider, some or all of these informations are required:
 * The main branch name (github uses `main`, while bitbucket still uses `master`, depending on your bitbucket configuration)
-* Your user name (is part of the clone-url)
+* Your user name (which is part of the clone URL)
 * Your workspace name (bitbucket only)
 
 ## Location of the identity scripts
