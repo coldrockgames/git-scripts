@@ -8,7 +8,7 @@ Feel free to give them a shot; they solve almost all git-related tasks with ease
 
 There's also a `pdf` cheatsheet available with a short help for each of the available scripts here.
 
-### Got a question before you start? Head over to the [Discussions](https://github.com/coldrockgames/git-scripts/discussions)!
+### You got a question before you start? Head over to the [Discussions](https://github.com/coldrockgames/git-scripts/discussions)!
 
 > [!CAUTION]
 > **DISCLAIMER**\
