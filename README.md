@@ -12,9 +12,10 @@ There's also a `pdf` cheatsheet available with a short help for each of the avai
 
 > [!CAUTION]
 > **DISCLAIMER**\
-> As these scripts perform _writing_ operations on your repositories, there _is a chance_ that you may damage your repository or codebase if they are used incorrectly.
-> Therefore, we want to state clearly that we are in no way responsible, either directly or indirectly, for any damage that occurs to your repository, codebase, or computer when using the scripts.
-> Our internal members are well-trained with the scripts, and we all use them with great success, but of course, the same risks exist as with GUI clients for Git. If you use them incorrectly, you may damage your data.
+> These scripts perform _write_ operations on your repositories, which means there's a risk of damaging your repository or codebase if they're used incorrectly.
+> We want to make it clear that we are not responsible, directly or indirectly, for any damage to your repository, codebase, or computer resulting from the use of these scripts.
+> Our internal team is well-trained in using these scripts, and we’ve had great success with them, but the same risks apply as with any Git GUI client.
+> Incorrect use may lead to data loss.
 
 # Setting up your scripts
 After cloning the repository, simply double-click the `install-scripts.cmd` file and follow the instructions on-screen.
