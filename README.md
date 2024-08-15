@@ -33,7 +33,7 @@ If you answered the question from the installer with `y` (which you should), you
 > A clone identity does **NOT** require your password—there is nothing creepy going on!\
 > It simply creates a pre-configured `cloneXY` script for you, which holds the base URL for
 > the git provider (like github or bitbucket).\
-> These URLs mostly contain your username, which is why the script asks for it.
+> These URLs typically include your username, which is why the script asks for it.
 
 To create a clone identity, the script needs some information from you:
 * A shortname of the identity (like `gh` for _github_ or `bb` for _bitbucket_)
@@ -45,7 +45,7 @@ Then, depending on the provider, some or all of these informations are required:
 * Your workspace name (bitbucket only)
 
 ## Location of the identity scripts
-Your clone scripts will be created in your _local app_data folder_ in `coldrock.games.git-identities`. As an example, here is the screenshot of my identities folder. I use three identities, bitbucket, github personal and the coldrock organization.
+Your clone scripts will be created in your _local app_data folder_ in `coldrock.games.git-identities`. For example, here is a screenshot of my identities folder. I use three identities: Bitbucket, GitHub personal and the Coldrock organization.
 
 ![image](https://github.com/user-attachments/assets/7cbbc56c-db0d-4a34-b344-06d8589427b4)
 
