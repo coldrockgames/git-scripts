@@ -9,9 +9,12 @@ IF NOT EXIST %REPO% GOTO ERROR
 ECHO Pushing "%REPO%/%2"...
 CALL push.cmd %REPO% "Push before merge to %3" -a
 cd %REPO%
-ECHO Fetching merge source "%REPO%/%2"
+ECHO Updating merge source "%REPO%/%2"
 git switch %2
+git fetch
 git pull
+git commit -a -m "Update merge source"
+git push origin 
 ECHO Merging "%REPO%/%2" into "%REPO%/%3"...
 git switch %3
 
