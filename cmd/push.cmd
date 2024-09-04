@@ -37,19 +37,6 @@ ECHO Looking for submodules in "%REPO%"...
 IF EXIST .gitmodules git submodule foreach "git commit -a -m ""%2"""
 IF EXIST .gitmodules git submodule foreach "git push origin"
 
-IF [%REPO%]==[gms-global] GOTO COPY_SETTINGS
-GOTO DO_PUSH_NOW
-
-:COPY_SETTINGS
-ECHO Copying GameMaker Settings...
-COPY /Y %APPDATA%\GameMakerStudio2\mike.barthold_3244154\* C:\Work\dev\git\gms-global\gamemaker_settings\%COMPUTERNAME%\appdata_roaming
-COPY /Y %ProgramData%\GameMakerStudio2\User\*.* C:\Work\dev\git\gms-global\gamemaker_settings\%COMPUTERNAME%\programdata\User
-COPY /Y %ProgramData%\GameMakerStudio2\language_settings.json C:\Work\dev\git\gms-global\gamemaker_settings\%COMPUTERNAME%\programdata\language_settings.json
-cd..
-CALL add.cmd %REPO%
-cd %REPO%
-
-:DO_PUSH_NOW
 ECHO Pushing "%REPO%" to origin...
 git commit -a -m %2
 git push origin 
