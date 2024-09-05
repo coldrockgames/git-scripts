@@ -45,8 +45,12 @@ SET /P GHUSER=Enter your github user name or organization:
 IF [%GHUSER%]==[] GOTO GHUSER_ERROR
 SET DESTCMD="%IDHOME%\clone%SHORTNAME%.cmd"
 COPY /Y "%~dp0\clone.cmd" %DESTCMD%
+SET DESTSUB="%IDHOME%\addsub%SHORTNAME%.cmd"
+COPY /Y "%~dp0\addsub.cmd" %DESTSUB%
 %FREP% %DESTCMD% "**USER**" "SET SERVER_URL=https://github.com/%GHUSER%" -l
 %FREP% %DESTCMD% "**PROVIDER**" "ECHO Cloning %%REPO%% from github/%GHUSER%..." -l
+%FREP% %DESTSUB% "**USER**" "SET SERVER_URL=https://github.com/%GHUSER%" -l
+%FREP% %DESTSUB% "**PROVIDER**" "ECHO Adding sub module %%SUB%% from github/%GHUSER% to %%REPO%%..." -l
 GOTO COMMON_REPLACE
 
 :MAKE_BITBUCKET
@@ -59,8 +63,12 @@ SET /P BBWSP=Enter your bitbucket workspace name:
 IF [%BBWSP%]==[] GOTO BBWSP_ERROR
 SET DESTCMD="%IDHOME%\clone%SHORTNAME%.cmd"
 COPY /Y "%~dp0\clone.cmd" %DESTCMD%
+SET DESTSUB="%IDHOME%\addsub%SHORTNAME%.cmd"
+COPY /Y "%~dp0\addsub.cmd" %DESTSUB%
 %FREP% %DESTCMD% "**USER**" "SET SERVER_URL=https://%BBUSER%@bitbucket.org/%BBWSP%" -l
 %FREP% %DESTCMD% "**PROVIDER**" "ECHO Cloning %%REPO%% from bitbucket/%BBWSP%..." -l
+%FREP% %DESTSUB% "**USER**" "SET SERVER_URL=https://%BBUSER%@bitbucket.org/%BBWSP%" -l
+%FREP% %DESTSUB% "**PROVIDER**" "ECHO Adding sub module %%SUB%% from bitbucket/%BBWSP% to %%REPO%%..." -l
 GOTO COMMON_REPLACE
 
 :MAKE_GITLAB
@@ -70,14 +78,22 @@ SET /P GLUSER=Enter your gitlab user name or project name:
 IF [%GLUSER%]==[] GOTO GLUSER_ERROR
 SET DESTCMD="%IDHOME%\clone%SHORTNAME%.cmd"
 COPY /Y "%~dp0\clone.cmd" %DESTCMD%
+SET DESTSUB="%IDHOME%\addsub%SHORTNAME%.cmd"
+COPY /Y "%~dp0\addsub.cmd" %DESTSUB%
 %FREP% %DESTCMD% "**USER**" "SET SERVER_URL=https://gitlab.com/%GLUSER%" -l
 %FREP% %DESTCMD% "**PROVIDER**" "ECHO Cloning %%REPO%% from gitlab/%GLUSER%..." -l
+%FREP% %DESTSUB% "**USER**" "SET SERVER_URL=https://gitlab.com/%GLUSER%" -l
+%FREP% %DESTSUB% "**PROVIDER**" "ECHO Adding sub module %%SUB%% from gitlab/%GLUSER% to %%REPO%%..." -l
 GOTO COMMON_REPLACE
 
 :COMMON_REPLACE
 %FREP% %DESTCMD% "GOTO ENDBLOCKED" "REM clone script for %GPROV%"
 %FREP% %DESTCMD% "**MAIN**" "%MAINBRANCH%"
 %FREP% %DESTCMD% "**SCRIPT**" "clone%SHORTNAME%"
+
+%FREP% %DESTSUB% "GOTO ENDBLOCKED" "REM add submodule script for %GPROV%"
+%FREP% %DESTSUB% "**MAIN**" "%MAINBRANCH%"
+%FREP% %DESTSUB% "**SCRIPT**" "addsub%SHORTNAME%"
 GOTO NEXT_IDENTITY
 
 :MAIN_BRANCH_ERROR

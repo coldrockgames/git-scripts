@@ -1,5 +1,6 @@
 @ECHO OFF
-SET SERVER_URL=https://mike_barthold@bitbucket.org/mike_barthold
+GOTO ENDBLOCKED
+SET SERVER_URL=**USER**
 SET REPO=%1
 SET SUB=%2
 SET FOLDER=%3
@@ -10,10 +11,11 @@ IF [%FOLDER%]==[] SET FOLDER=%SUB%
 
 IF NOT EXIST %REPO% GOTO ERROR
 
+ECHO Adding sub module %SUB% from **PROVIDER** to %REPO%...
 cd %REPO%
 git submodule add %SERVER_URL%/%SUB%.git %3
 cd %FOLDER%
-git switch master
+git switch **MAIN**
 cd..
 cd..
 
@@ -21,8 +23,14 @@ GOTO END
 
 :ERROR
 ECHO Error: No repository or submodule specified or repository "%REPO%" does not exist.
-ECHO Usage: add repo submodule [folder]
-ECHO Example: add gdx-escape gdx-platform-module platform
+ECHO Usage: **SCRIPT** repo submodule [folder]
+ECHO Example: **SCRIPT** gdx-escape gdx-platform-module platform
 
 :END
 ECHO --- Finished "%REPO%" ---
+GOTO ENDIMMEDIATE
+
+:ENDBLOCKED
+ECHO THIS SCRIPT MAY NOT RUN! Use the identity.cmd script to set up a clone identity!
+
+:ENDIMMEDIATE
