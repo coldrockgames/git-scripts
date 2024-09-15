@@ -20,7 +20,7 @@ COPY /Y "%SCRIPTHOME%..\tools\gsupdatecheck.exe" "%IDHOME%\gsupdatecheck.exe" >N
 REM CMD /K "%IDHOME%\gsupdatecheck.exe" 2>nul
 "%IDHOME%\gsupdatecheck.exe" 2>nul
 IF %ERRORLEVEL% NEQ 0 (
-	writeIn [r] Can't check for script updates. Another script tab seems to be running the update check.
+	writeIn [y] Can't check for script updates. Another script tab seems to be running the update check.
 )
 CMD /K
 
