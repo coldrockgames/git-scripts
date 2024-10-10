@@ -15,8 +15,11 @@ git fetch
 git pull
 git commit -a -m "Update merge source"
 git push origin 
-ECHO Merging "%REPO%/%2" into "%REPO%/%3"...
+ECHO Updating merge target "%REPO%/%3"...
 git switch %3
+git fetch
+git pull
+git commit -a -m "Update merge source"
 
 SET SWITCHBACK=%2
 IF [%4]==[-2] SET SWITCHBACK=%3
@@ -27,6 +30,7 @@ IF [%4]==[-cp] GOTO MERGEPUSHCOMMIT
 IF [%5]==[-c] GOTO MERGECOMMIT
 IF [%5]==[-cp] GOTO MERGEPUSHCOMMIT
 
+ECHO Merging "%REPO%/%2" into "%REPO%/%3"...
 git merge %2
 cd..
 GOTO END
