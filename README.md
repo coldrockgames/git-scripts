@@ -27,7 +27,7 @@ This is your main shell for working with the scripts. If you’re familiar with 
 At the end of the script, you will be asked, whether you want to set up your identities now. Read on...
 
 # Setting up git clone identities
-If you answered the question from the installer with `y` (which you should), you will be redirected to the `identity.cmd` script.
+If you answered the question from the installer with `y` (what you should), you will be redirected to the `identity.cmd` script.
 
 > [!TIP]
 > A clone identity does **NOT** require your password—there is nothing creepy going on!\
