@@ -5,6 +5,7 @@
 *.suo
 *.user
 *.sln.docstates
+*.bak
 .vs
 
 # Build results
@@ -41,7 +42,8 @@ dlldata.c
 *_p.c
 *_i.h
 *.ilk
-#*.meta
+*.meta
+!**/Assets/**/*.meta
 *.obj
 *.pch
 *.pdb
