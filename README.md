@@ -18,6 +18,17 @@ There's also a `pdf` cheatsheet available with a short help for each of the avai
 > Incorrect use may lead to data loss.
 
 # Setting up your scripts
+
+### 1. Install Git
+If you haven't already installed Git, do so now, best from the original site at https://git-scm.com/.
+
+### 2. Install TortoiseGit (optional)
+Some of our scripts provide shortcuts to TortoiseGit function, so you can use some of the good dialogs without clicking in an Explorer window.\
+https://tortoisegit.org/
+
+It is totally optional to install TortoiseGit, but you can't use the `diff` and `resolve` scripts, if you skip this step.
+
+### 3. Clone this repository
 After cloning the repository, simply double-click the `install-scripts.cmd` file and follow the instructions on-screen.
 
 This script will create a shortcut on your desktop, pre-configured for your working folder, with all PATH variables set (temporarily, only in this script. It will _not_ modify any of your system configurations!).
