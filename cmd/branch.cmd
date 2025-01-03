@@ -10,13 +10,9 @@ IF NOT EXIST %REPO% GOTO ERROR
 SET ACTION=Creating
 IF [%3]==[-d] SET ACTION=Deleting
 IF [%4]==[-d] SET ACTION=Deleting
-IF [%3]==[-D] SET ACTION=Deleting
-IF [%4]==[-D] SET ACTION=Deleting
 
 IF [%3]==[-d] SET BDEL=1
 IF [%4]==[-d] SET BDEL=1
-IF [%3]==[-D] SET BDEL=1
-IF [%4]==[-D] SET BDEL=1
 IF [%3]==[-l] SET LOCA=1
 IF [%4]==[-l] SET LOCA=1
 				  
@@ -61,10 +57,9 @@ GOTO USAGE
 ECHO Error: No repository specified or repository "%REPO%" does not exist.
 
 :USAGE
-ECHO Usage: branch repo branchname [-d or -D] [-l]
+ECHO Usage: branch repo branchname [-d] [-l]
 ECHO -l to create/delete the branch only locally
-ECHO -d will delete the branch locally
-ECHO -D will delete the branch locally AND on the remote!
+ECHO -d will delete the branch (together with -l only local)
 ECHO NOTE on submodules: This script does not modify submodules in any way!
 
 :END
