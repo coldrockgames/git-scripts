@@ -11,8 +11,10 @@ ECHO        _\/\\\_______\/\\\_____\/\\\___________\/\\\_______
 ECHO         _\//\\\\\\\\\\\\/___/\\\\\\\\\\\_______\/\\\_______ 
 ECHO          __\////////////____\///////////________\///________
 ECHO           ___________________________________________________
-ECHO _
+ECHO -
 SET PATH=%PATH%;%LOCALAPPDATA%\coldrock.games.git-identities;%~dp0;%~dp0..\tools
+SET PERSONALBRANCH=%1
+SET DEVBRANCH=%2
 SET SCRIPTHOME=%~dp0
 SET DEVHOME=%cd%
 SET IDHOME=%LOCALAPPDATA%\coldrock.games.git-identities
@@ -22,6 +24,14 @@ REM CMD /K "%IDHOME%\gsupdatecheck.exe" 2>nul
 IF %ERRORLEVEL% NEQ 0 (
 	writeIn [y] Can't check for script updates. Another script tab seems to be running the update check.
 )
+
+IF [%PERSONALBRANCH%]==[] GOTO OPEN_CMD
+writeIn [gr] Your personal git branch name is set to [y] %PERSONALBRANCH%
+IF [%DEVBRANCH%]==[] GOTO OPEN_CMD
+writeIn [gr] Your git development branch name is set to [y] %DEVBRANCH%
+ECHO -
+
+:OPEN_CMD
 CMD /K
 
 REM CMD /K "%~dp0..\tools\gsupdatecheck.exe"

@@ -28,6 +28,13 @@ IF [%SCNAME%]==[] GOTO NOSHORTCUTNAME
 SET /P WKD=Clone destination folder (your dev-working-folder):
 IF [%WKD%]==[] GOTO NOWORKINGFOLDER
 
+:ENTER_PERSONAL_BRANCH
+SET /P PERSBR=Enter the default name of your personal git branch (leave blank, if none):
+
+:ENTER_DEV_BRANCH
+SET /P DEVBR=Enter the default name of your development branch (default=dev):
+IF [%DEVBR%]==[] SET DEVBR=dev
+
 SET GITMING=%ProgramFiles%\Git
 IF EXIST "%GITMING%" GOTO CREATE_SHORTCUT
 
@@ -40,6 +47,14 @@ IF NOT EXIST %GITMING% GOTO NOGITFORWINDOWS
 
 :CREATE_SHORTCUT
 REM create-shortcut.exe --work-dir "C:\path\to\files" --arguments "--myarg=myval" "C:\path\to\files\file.ext" "C:\path\to\shortcuts\shortcut.lnk"
+IF [%PERSBR%]==[] GOTO CREATE_SHORTCUT_NO_BRANCHES
+IF [%DEVBR%]==[] GOTO CREATE_SHORTCUT_NO_BRANCHES
+%WI% [y] Creating prompt with default branches set...
+"%GITMING%\mingw64\bin\create-shortcut.exe" --work-dir "%WKD%" --arguments "%PERSBR% %DEVBR%" "%~dp0cmd\prompt.cmd" "%USERPROFILE%\Desktop\%SCNAME%.lnk"
+GOTO STEP2
+
+:CREATE_SHORTCUT_NO_BRANCHES
+%WI% [y] Creating prompt without default branches...
 "%GITMING%\mingw64\bin\create-shortcut.exe" --work-dir "%WKD%" "%~dp0cmd\prompt.cmd" "%USERPROFILE%\Desktop\%SCNAME%.lnk"
 GOTO STEP2
 
