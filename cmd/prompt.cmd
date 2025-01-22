@@ -18,13 +18,23 @@ SET DEVBRANCH=%2
 SET SCRIPTHOME=%~dp0
 SET DEVHOME=%cd%
 SET IDHOME=%LOCALAPPDATA%\coldrock.games.git-identities
-COPY /Y "%SCRIPTHOME%..\tools\gsupdatecheck.exe" "%IDHOME%\gsupdatecheck.exe" >NUL 2>&1
-REM CMD /K "%IDHOME%\gsupdatecheck.exe" 2>nul
-"%IDHOME%\gsupdatecheck.exe" 2>nul
-IF %ERRORLEVEL% NEQ 0 (
-	writeIn [y] Can't check for script updates. Another script tab seems to be running the update check.
-)
 
+SET RETRY=0
+:TRY_AGAIN
+COPY /Y "%SCRIPTHOME%..\tools\gsupdatecheck.exe" "%IDHOME%\gsupdatecheck.exe" >NUL 2>&1
+
+"%IDHOME%\gsupdatecheck.exe" 2>nul
+IF [%ERRORLEVEL%]==[0] GOTO SUCCESS
+SET /a RETRY+=1
+IF [%RETRY%]==[3] GOTO FAIL
+writeIn Checking for updates...
+mwait 0.5 -s
+GOTO TRY_AGAIN
+
+:FAIL
+writeIn [y] Can't check for script updates. Another script tab seems to be running the update check.
+
+:SUCCESS
 IF [%PERSONALBRANCH%]==[] GOTO OPEN_CMD
 writeIn [gr] Your personal git branch name is set to [y] %PERSONALBRANCH%
 IF [%DEVBRANCH%]==[] GOTO OPEN_CMD
@@ -33,5 +43,3 @@ ECHO -
 
 :OPEN_CMD
 CMD /K
-
-REM CMD /K "%~dp0..\tools\gsupdatecheck.exe"
