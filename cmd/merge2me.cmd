@@ -9,8 +9,7 @@ IF [%DEVBRANCH%]==[] GOTO ERROR
 ECHO Merging %REPO% from %DEVBRANCH% to %PERSONALBRANCH%...
 CALL merge.cmd %REPO% %DEVBRANCH% %PERSONALBRANCH% -cp -2
 
-SET /P RESOLVE=Need to resolve (y/n)?
-IF [%RESOLVE%]==[y] CALL resolve.cmd %REPO%
+CALL resolve.cmd %REPO%
 
 GOTO END
 
