@@ -42,4 +42,5 @@ writeIn [gr] Your git development branch name is set to [y] %DEVBRANCH%
 ECHO -
 
 :OPEN_CMD
+SET PROMPT=$E[1;35m$P$G$E[1;37m
 CMD /K
