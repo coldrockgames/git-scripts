@@ -13,7 +13,7 @@ IF NOT EXIST %REPO% GOTO ERROR
 
 ECHO Adding sub module %SUB% from **PROVIDER** to %REPO%...
 cd %REPO%
-git submodule add %SERVER_URL%/%SUB%.git %3
+git submodule add %4 %SERVER_URL%/%SUB%.git %3
 cd %FOLDER%
 git switch **MAIN**
 cd..
