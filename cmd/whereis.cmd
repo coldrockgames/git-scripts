@@ -16,7 +16,7 @@ GOTO END
 ECHO Error: No repository specified or repository "%REPO%" does not exist.
 
 :USAGE
-ECHO Usage: where repo
+ECHO Usage: whereis repo
 
 :END
 ECHO --- Finished "%REPO%" ---
