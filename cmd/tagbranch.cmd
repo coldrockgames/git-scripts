@@ -15,11 +15,8 @@ CALL push.cmd %REPO% "Push before tag %TAG%"
 CALL switch.cmd %REPO% %BRANCH%
 CALL tag.cmd %REPO% %TAG%
 
-IF [%BRANCH_AFTER%]==[] GOTO SKIP_AFTER
+IF [%BRANCH_AFTER%]==[] GOTO END
 CALL switch.cmd %REPO% %BRANCH_AFTER%
-
-:SKIP_AFTER
-CALL list.cmd %REPO%
 GOTO END
 
 :ERROR
