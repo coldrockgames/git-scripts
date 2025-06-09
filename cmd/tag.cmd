@@ -1,17 +1,19 @@
 @ECHO OFF
 SET REPO=%1
+SET TAG=%2
+SET COMMIT=%3
 
-IF "%2"=="" GOTO NOMSG
+IF [%TAG%]==[] GOTO NOMSG
 IF [%REPO%]==[] GOTO ERROR
 IF NOT EXIST %REPO% GOTO ERROR
 
 cd %REPO%
-ECHO Creating local tag "%REPO%/%2"...
+ECHO Creating local tag "%REPO%/%TAG%"...
 ECHO NOTE: Tags are NOT applied to sub modules!
-git tag %2 %3
+git tag %TAG% %COMMIT%
 REM IF EXIST .gitmodules git submodule foreach "git tag %2 %3"
 
-ECHO Pushing "%REPO%/%2" to origin...
+ECHO Pushing "%REPO%/%TAG%" to origin...
 git push --tags
 REM IF EXIST .gitmodules git submodule foreach "git push --tags"
 
