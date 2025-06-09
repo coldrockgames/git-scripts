@@ -56,6 +56,8 @@ ECHO -b will create a dev branch local and on the remote. USE WITH CARE and only
 ECHO --- Finished "%REPO%" ---
 
 :ENDSILENT
+REM try to silently switch to the dev branch if it exists
+CALL switch.cmd %REPO% dev >nul 2>&1
 CALL status.cmd %REPO%
 GOTO ENDIMMEDIATE
 
