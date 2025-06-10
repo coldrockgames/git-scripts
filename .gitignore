@@ -345,3 +345,5 @@ UserSettings/
 # GameMaker temporary files
 *.resource_order
 *.old
+jsfilelist.json
+jsfilelist.jx
