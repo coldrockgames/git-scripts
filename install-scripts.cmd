@@ -1,4 +1,38 @@
 @ECHO OFF
+SET CURRENT=%~dp0tools
+SET WI="%~dp0\tools\writein.exe"
+
+ECHO Checking system path...
+for /f "delims=" %%A in ('powershell -NoProfile -Command "[Environment]::GetEnvironmentVariable('Path', 'Machine')"') do (
+    SET OLDPATH=%%A
+)
+
+ECHO %OLDPATH% | find /i "%CURRENT%" >nul
+IF NOT ERRORLEVEL 1 (
+	ECHO Path is ok.
+    goto :START_SETUP
+)
+
+IF ["%OLDPATH%"]==[""] GOTO PATH_ERROR
+SET NEWFULLPATH="%OLDPATH%;%CURRENT%"
+
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v Path /t REG_EXPAND_SZ /d %NEWFULLPATH% /f
+IF ERRORLEVEL 1 (
+	%WI% [r] Failed to set path.
+	%WI% [r] Please run this script as [y] Administrator [].
+	%WI% [gr] Do this by right-clicking the script and choose ' [y] Run as Administrator [] '
+	GOTO END
+)
+
+ECHO Path set successfully.
+GOTO :START_SETUP
+
+:PATH_ERROR
+ECHO Could not update system PATH variable!
+ECHO Please add this folder to the path: %CURRENT%
+ECHO It is required to access the tools from build scripts.
+
+:START_SETUP
 SET WI="%~dp0\tools\writein.exe"
 %WI% [y] . [gr] 
 %WI% [y] . [y] Welcome to the git-scripts installer!
