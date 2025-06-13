@@ -1,9 +1,17 @@
 @ECHO OFF
 SET REPO=%1
 SET ROOT=%2
+SET WILDCARD=*
 
 IF [%REPO%]==[] GOTO ALL
 IF [%REPO%]==[all] GOTO ALL
+
+ECHO %REPO% | findstr /C:"*" >nul
+IF NOT ERRORLEVEL 1 (
+	SET WILDCARD=%REPO%
+	GOTO ALL
+)
+
 IF NOT EXIST %REPO% GOTO ERROR
 
 cd %REPO%
@@ -31,12 +39,12 @@ GOTO FINISHLINE
 
 :SCANSUB
 ECHO --- Scanning sub folder %REPO% ---
-FOR /D %%G in ("*") DO CALL status.cmd %%~nxG %ROOT%
+FOR /D %%G in (%WILDCARD%) DO CALL status.cmd %%~nxG %ROOT%
 cd..
 GOTO FINISHSILENT
 
 :ALL
-FOR /D %%G in ("*") DO CALL status.cmd %%~nxG %ROOT%
+FOR /D %%G in (%WILDCARD%) DO CALL status.cmd %%~nxG %ROOT%
 GOTO FINISHSILENT
 
 :FINISH_NOT_A_REPO
