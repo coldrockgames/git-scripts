@@ -14,37 +14,42 @@ IF NOT ERRORLEVEL 1 (
 
 IF NOT EXIST %REPO% GOTO ERROR
 
-cd %REPO%
+CD %REPO%
 IF [%ROOT%]==[root] GOTO CONTINUE_WITH_SUBS
 IF NOT EXIST .git GOTO FINISH_NOT_A_REPO
 
 :CONTINUE_WITH_SUBS
 IF NOT EXIST .git GOTO SCANSUB
-ECHO Status of "%REPO%":
+writein Status of [y] "%REPO%"
 git status -s -b
 IF EXIST .gitmodules git submodule foreach "git status -s -b"
-cd..
+CD..
 
 GOTO END
 
 :ERROR
-ECHO Error: No repository specified or repository "%REPO%" does not exist.
-ECHO Usage: status repo [root] or status all [root]
-ECHO Status all will check the status of all repositories
-ECHO Specify root as second parameter to scan subfolders even when they 
-ECHO are not a repository.
+writein [r] Error: No repository specified or repository "%REPO%" does not exist.
+writein [y] Usage: 
+writein [y] status [] repo [root]
+writein [y] status all [] (or status without arguments) 
+writein will check the status of all repositories
+writein [y] status [] without arguments or with a wildcard ( [y] status gml* [] ) 
+writein will create a formatted shortlist of all repositories 
+writein matching the pattern and their state
+writein Specify [y] root [] as second parameter to scan subfolders even when they 
+writein are not a repository
 
 :END
 GOTO FINISHLINE
 
 :SCANSUB
 ECHO --- Scanning sub folder %REPO% ---
-FOR /D %%G in (%WILDCARD%) DO CALL status.cmd %%~nxG %ROOT%
+FOR /D %%G in (%WILDCARD%) DO CALL status-short.cmd %%~nxG %ROOT%
 cd..
 GOTO FINISHSILENT
 
 :ALL
-FOR /D %%G in (%WILDCARD%) DO CALL status.cmd %%~nxG %ROOT%
+FOR /D %%G in (%WILDCARD%) DO CALL status-short.cmd %%~nxG
 GOTO FINISHSILENT
 
 :FINISH_NOT_A_REPO
