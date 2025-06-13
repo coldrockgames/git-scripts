@@ -9,12 +9,12 @@ cd %REPO%
 IF [%2]==[] GOTO PULLALL
 
 ECHO Pulling "%REPO%/%2"...
-git pull -v --no-rebase --no-edit "origin" %2
+git pull -v --no-rebase   "origin" %2
 GOTO SUBS
 
 :PULLALL
 ECHO Pulling "%REPO%" (full)...
-git pull -v --no-rebase --no-edit --all
+git pull -v --no-rebase   --all
 GOTO SUBS
 
 :ERROR
