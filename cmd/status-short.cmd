@@ -1,8 +1,8 @@
 @echo off
 
-SET REPO=%1
+SET SUBREPO=%1
 
-CD %REPO%
+CD %SUBREPO%
 REM Count changes
 SET COUNT=0
 FOR /f %%A IN ('git status -s ^| find /c /v ""') DO SET COUNT=%%A
@@ -61,7 +61,7 @@ SET REPOCOL=[gr]
 IF %COUNTCOL%==[r] SET REPOCOL=[r]
 SET PRE=%PRE% %COUNTPAD%%COUNT%
 SET BR="%BRANCH% %BRANCHPAD%:"
-writein %COUNTCOL% "%PRE%" %BRANCHCOL% %BR% %REPOCOL% %REPO%
+writein %COUNTCOL% "%PRE%" %BRANCHCOL% %BR% %REPOCOL% %SUBREPO%
 
 REM Switch back
 chcp %OLDCP% >nul
