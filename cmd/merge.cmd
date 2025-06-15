@@ -31,7 +31,7 @@ IF [%5]==[-c] GOTO MERGECOMMIT
 IF [%5]==[-cp] GOTO MERGEPUSHCOMMIT
 
 ECHO Merging "%REPO%/%2" into "%REPO%/%3"...
-git merge   %2
+git merge --no-edit %2
 cd..
 GOTO END
 
