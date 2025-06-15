@@ -1,9 +1,18 @@
 @ECHO OFF
 SET REPO=%1
+SET WILDCARD=*
+
 SET PULL_FIRST=
 SET ADD_FIRST=a
 
 IF [%REPO%]==[*] GOTO ALL
+
+ECHO %REPO% | findstr /C:"*" >nul
+IF NOT ERRORLEVEL 1 (
+	SET WILDCARD=%REPO%
+	GOTO ALL
+)
+
 IF [%REPO%]==[] GOTO ERROR
 IF [%2]==[] GOTO ERROR
 IF [%3]==[-a] SET ADD_FIRST=
@@ -63,7 +72,7 @@ ECHO -a and -p can also be specified as a single -ap or -pa parameter.
 GOTO FINISHLINE
 
 :ALL
-FOR /D %%G in ("*") DO CALL push.cmd %%~nxG %2 %3 %4
+FOR /D %%G in (%WILDCARD%) DO CALL push.cmd %%~nxG %2 %3 %4
 GOTO FINISHSILENT
 
 :FINISHLINE
