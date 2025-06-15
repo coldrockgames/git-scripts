@@ -6,7 +6,7 @@ IF NOT EXIST %REPO% GOTO ERROR
 
 cd %REPO%
 ECHO Remote branch stats for "%REPO%"
-git remote show origin
+git remote --v
 IF EXIST .gitmodules git submodule foreach "git remote show origin"
 
 cd..
