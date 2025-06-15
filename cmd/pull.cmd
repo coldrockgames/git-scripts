@@ -1,8 +1,16 @@
 @ECHO OFF
 SET REPO=%1
+SET WILDCARD=*
 
 IF [%REPO%]==[*] GOTO ALL
 IF [%REPO%]==[] GOTO ERROR
+
+ECHO %REPO% | findstr /C:"*" >nul
+IF NOT ERRORLEVEL 1 (
+	SET WILDCARD=%REPO%
+	GOTO ALL
+)
+
 IF NOT EXIST %REPO% GOTO ERROR
 
 cd %REPO%
@@ -40,7 +48,7 @@ cd..
 GOTO FINISHLINE
 
 :ALL
-FOR /D %%G in ("*") DO CALL pull.cmd %%~nxG %2
+FOR /D %%G in (%WILDCARD%) DO CALL pull.cmd %%~nxG %2
 GOTO FINISHSILENT
 
 :FINISHLINE
