@@ -98,12 +98,14 @@ SET OLDCP=%OLDCP:.=%
 REM Switch to unicode
 chcp 65001 >nul
 
-SET BRANCHCOL=[gr]
+SET BRANCHCOL=[c]
 SET COUNTCOL=[g]
 SET PRE=✔
 
 IF [%BRANCH%]==[main] SET BRANCHCOL=[y]
 IF [%BRANCH%]==[master] SET BRANCHCOL=[y]
+IF [%BRANCH%]==[dev] SET BRANCHCOL=[gr]
+
 IF %COUNT% GTR 0 (
 	SET PRE=🔥
 	SET COUNTCOL=[r]
