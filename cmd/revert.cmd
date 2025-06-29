@@ -1,15 +1,15 @@
 @ECHO OFF
 SET REPO=%1
-SET FILEMASK=%2
-IF [%FILEMASK%]==[] SET FILEMASK=*.*
 
 IF [%REPO%]==[] GOTO ERROR
 IF NOT EXIST %REPO% GOTO ERROR
 
 cd %REPO%
-git checkout -- "%FILEMASK%"
+git reset --hard
+git clean -f -d
 git status -s -b
-IF EXIST .gitmodules git submodule foreach "git checkout ""%FILEMASK%"""
+IF EXIST .gitmodules git submodule foreach "git reset --hard"
+IF EXIST .gitmodules git submodule foreach "git clean -f -d"
 IF EXIST .gitmodules git submodule foreach "git status -s -b"
 
 cd..
@@ -17,9 +17,10 @@ cd..
 GOTO END
 
 :ERROR
-ECHO Error: No repository specified or repository "%REPO%" does not exist.
-ECHO Usage: revert repo [filemask]
-ECHO Example: revert and-myapp *.java
+writein [r] Error: No repository specified or repository [y] """%REPO%""" [r] does not exist.
+writein [y] HARD RESETS THE REPOSITORY! NO UNDO!
+writein [y] Usage: revert repo
+writein [y] Example: revert and-myapp
 
 :END
 ECHO --- Finished "%REPO%" ---
