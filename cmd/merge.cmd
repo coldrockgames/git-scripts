@@ -7,6 +7,7 @@ IF [%REPO%]==[] GOTO ERROR
 IF NOT EXIST %REPO% GOTO ERROR
 
 ECHO Pushing "%REPO%/%2"...
+CALL pull.cmd %REPO%
 CALL push.cmd %REPO% "Push before merge to %3"
 cd %REPO%
 ECHO Updating merge source "%REPO%/%2"
