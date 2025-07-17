@@ -31,11 +31,12 @@ FOR /F "DELIMS=" %%A IN (.\%REPO%\.git\config) DO (
 
 IF [%ISCOLDROCK%]==[0] GOTO NOCOLDROCK
 writein [g] This is a coldrockgames repository
+SET SUFFIX=
+IF [%REPO%]==[gms-ennead] SET SUFFIX=-tasks
 SET FIRSTCHAR=%MSG:~0,1%
-
 IF "%FIRSTCHAR%"=="#" (
-    writein [y] Adding coldrockgames/%REPO% to commit message
-	SET MSG=coldrockgames/%REPO%%MSG%
+    writein [y] Adding coldrockgames/%REPO%%SUFFIX% to commit message
+	SET MSG=coldrockgames/%REPO%%SUFFIX%%MSG%
 )
 
 :NOCOLDROCK
