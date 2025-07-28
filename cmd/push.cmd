@@ -36,11 +36,11 @@ IF [%REPO%]==[gms-ennead] SET SUFFIX=-tasks
 SET FIRSTCHAR=%MSG:~0,1%
 IF "%FIRSTCHAR%"=="#" (
     writein [y] Adding coldrockgames/%REPO%%SUFFIX% to commit message
-	SET MSG=coldrockgames/%REPO%%SUFFIX%%MSG%
+	SET "MSG=coldrockgames/%REPO%%SUFFIX%%MSG%"
 )
 
 :NOCOLDROCK
-ENDLOCAL
+
 IF [%3]==[-a] SET ADD_FIRST=
 IF [%4]==[-a] SET ADD_FIRST=
 IF [%3]==[-p] SET PULL_FIRST=p
@@ -72,7 +72,7 @@ ECHO Looking for submodules in "%REPO%"...
 IF EXIST .gitmodules git submodule foreach "git commit -a -m ""%MSG%"""
 IF EXIST .gitmodules git submodule foreach "git push origin"
 
-ECHO Pushing "%REPO%" to origin...
+ECHO Pushing "%REPO%" to origin as '%MSG%'...
 git commit -a -m "%MSG%"
 git push origin 
 cd..
