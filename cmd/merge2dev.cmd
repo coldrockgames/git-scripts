@@ -20,6 +20,6 @@ ECHO Error: This prompt installation has no "dev" and no "personal" git branch c
 ECHO Usage: merge2me repo
 
 :END
-ECHO --- Finished "%REPO%" ---
+writein [g] --- Finished [y] "%REPO%" [g] ---
 
 :FINISHSILENT

@@ -26,6 +26,6 @@ ECHO Error: No repository specified or repository "%REPO%" does not exist.
 ECHO Usage: commit repo "message"
 
 :END
-ECHO --- Finished "%REPO%" ---
+writein [g] --- Finished [y] "%REPO%" [g] ---
 
 :FINISHSILENT

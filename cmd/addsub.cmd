@@ -27,7 +27,7 @@ ECHO Usage: **SCRIPT** repo submodule [folder]
 ECHO Example: **SCRIPT** gdx-escape gdx-platform-module platform
 
 :END
-ECHO --- Finished "%REPO%" ---
+writein [g] --- Finished [y] "%REPO%" [g] ---
 GOTO ENDIMMEDIATE
 
 :ENDBLOCKED

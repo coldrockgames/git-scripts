@@ -66,6 +66,6 @@ writein [gr] after merging. Supply [y] -2 [gr] as last argument, to switch to th
 writein [gr] NOTE on submodules: This script does not modify submodules in any way!
 
 :END
-ECHO --- Finished "%REPO%" ---
+writein [g] --- Finished [y] "%REPO%" [g] ---
 
 :FINISHSILENT

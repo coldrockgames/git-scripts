@@ -43,6 +43,6 @@ ECHO Usage: tag repo tagname [-f]
 ECHO Adding -f will force the tag to point to the current commit
 
 :END
-ECHO --- Finished "%REPO%" ---
+writein [g] --- Finished [y] "%REPO%" [g] ---
 
 :FINISHSILENT

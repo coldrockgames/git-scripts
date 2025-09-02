@@ -102,6 +102,6 @@ FOR /D %%G in (%WILDCARD%) DO CALL push.cmd %%~nxG "%MSG%" %3 %4
 GOTO FINISHSILENT
 
 :FINISHLINE
-ECHO --- Finished "%REPO%" ---
+writein [g] --- Finished [y] "%REPO%" [g] ---
 
 :FINISHSILENT

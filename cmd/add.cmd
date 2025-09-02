@@ -19,4 +19,4 @@ ECHO Usage: add repo [filemask]
 ECHO Example: add and-myapp *.java
 
 :END
-ECHO --- Finished "%REPO%" ---
+writein [g] --- Finished [y] "%REPO%" [g] ---

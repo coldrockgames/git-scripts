@@ -21,6 +21,6 @@ ECHO Error: No repository specified or repository "%REPO%" does not exist.
 ECHO Usage: yypfix repo
 
 :END
-ECHO --- Finished "%REPO%" ---
+writein [g] --- Finished [y] "%REPO%" [g] ---
 
 :FINISHSILENT

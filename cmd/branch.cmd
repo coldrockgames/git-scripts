@@ -63,6 +63,6 @@ ECHO -d will delete the branch (together with -l only local)
 ECHO NOTE on submodules: This script does not modify submodules in any way!
 
 :END
-ECHO --- Finished "%REPO%" ---
+writein [g] --- Finished [y] "%REPO%" [g] ---
 
 :FINISHSILENT

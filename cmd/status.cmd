@@ -131,6 +131,6 @@ cd..
 ECHO %REPO% is not a repository
 
 :FINISHLINE
-ECHO --- Finished "%REPO%" ---
+writein [g] --- Finished [y] "%REPO%" [g] ---
 
 :FINISHSILENT

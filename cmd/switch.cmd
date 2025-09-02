@@ -25,6 +25,6 @@ ECHO Usage: switch repo branchname [-m]
 ECHO -m will merge any local changes of your current branch into the new branch
 
 :END
-ECHO --- Finished "%REPO%" ---
+writein [g] --- Finished [y] "%REPO%" [g] ---
 
 :FINISHSILENT

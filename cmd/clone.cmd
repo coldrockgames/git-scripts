@@ -53,7 +53,7 @@ ECHO Usage: **SCRIPT** repo [-b]
 ECHO -b will create a dev branch local and on the remote. USE WITH CARE and only if that branch does not already exist!
 
 :END
-ECHO --- Finished "%REPO%" ---
+writein [g] --- Finished [y] "%REPO%" [g] ---
 
 :ENDSILENT
 REM try to silently switch to the dev branch if it exists

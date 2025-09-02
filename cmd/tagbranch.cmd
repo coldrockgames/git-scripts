@@ -25,6 +25,6 @@ ECHO Usage: tagbranch repo branch tag [branch-after]
 ECHO Example: tagbranch gml-raptor main 2506.1 [dev]
 
 :END
-ECHO --- Finished "%REPO%" ---
+writein [g] --- Finished [y] "%REPO%" [g] ---
 
 :FINISHSILENT

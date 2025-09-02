@@ -50,6 +50,6 @@ GOTO FINISHSILENT
 cd..
 
 :FINISHLINE
-ECHO --- Finished "%REPO%" ---
+writein [g] --- Finished [y] "%REPO%" [g] ---
 
 :FINISHSILENT

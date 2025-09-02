@@ -52,6 +52,6 @@ FOR /D %%G in (%WILDCARD%) DO CALL pull.cmd %%~nxG %2
 GOTO FINISHSILENT
 
 :FINISHLINE
-ECHO --- Finished "%REPO%" ---
+writein [g] --- Finished [y] "%REPO%" [g] ---
 
 :FINISHSILENT

@@ -21,4 +21,4 @@ ECHO Usage: gms-delcache project_name
 ECHO Will delete the gms-cache in your appdata folder (gms + ide cache)
 
 :END
-ECHO --- Finished "%REPO%" ---
+writein [g] --- Finished [y] "%REPO%" [g] ---

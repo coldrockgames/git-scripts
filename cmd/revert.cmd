@@ -23,4 +23,4 @@ writein [y] Usage: revert repo
 writein [y] Example: revert and-myapp
 
 :END
-ECHO --- Finished "%REPO%" ---
+writein [g] --- Finished [y] "%REPO%" [g] ---

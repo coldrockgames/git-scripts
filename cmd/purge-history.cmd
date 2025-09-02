@@ -40,7 +40,7 @@ git push -u origin %NEWBRANCH%
 cd..
 
 :FINISHLINE
-ECHO --- Finished "%REPO%" ---
+writein [g] --- Finished [y] "%REPO%" [g] ---
 GOTO FINISHSILENT
 
 :ERROR
