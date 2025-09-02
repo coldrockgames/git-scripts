@@ -72,7 +72,7 @@ ECHO Looking for submodules in "%REPO%"...
 IF EXIST .gitmodules git submodule foreach "git commit -a -m ""%MSG%"""
 IF EXIST .gitmodules git submodule foreach "git push origin"
 
-ECHO Pushing "%REPO%" to origin as '%MSG%'...
+writein [gr] Pushing [y] "%REPO%" [] to origin as [y] '%MSG%' [] ...
 git commit -a -m "%MSG%"
 git push origin 
 cd..
@@ -80,19 +80,19 @@ cd..
 GOTO END
 
 :NOMSG
-ECHO Error: No commit message specified
+writein [r] Error: No commit message specified
 IF [%REPO%]==[] GOTO ERROR
 GOTO USAGE
 
 :ERROR
-ECHO Error: No repository specified or repository "%REPO%" does not exist.
+writein [r] Error: No repository specified or repository "%REPO%" does not exist.
 
 :USAGE
-ECHO Usage: push repo "message" [-p] [-a] [-pa] [-ap]
-ECHO BY DEFAULT, an ADD operation will be performed before pushing!
-ECHO -a parameter will AVOID to run the add script before pushing.
-ECHO -p parameter will cause to run the pull script before pushing.
-ECHO -a and -p can also be specified as a single -ap or -pa parameter.
+writein [gr] Usage: [y] push repo "message" [-p] [-a] [-pa] [-ap]
+writein [gr] BY DEFAULT, an ADD operation will be performed before pushing!
+writein [y] -a [gr] parameter will AVOID to run the add script before pushing.
+writein [y] -p [gr] parameter will cause to run the pull script before pushing.
+writein [y] -a [gr] and [y] -p [gr] can also be specified as a single [y] -ap [gr] or [y] -pa [gr] parameter.
 
 :END
 GOTO FINISHLINE

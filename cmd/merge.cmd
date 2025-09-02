@@ -55,15 +55,15 @@ IF [%REPO%]==[] GOTO ERROR
 GOTO USAGE
 
 :ERROR
-ECHO Error: No repository specified or repository "%REPO%" does not exist.
+writein [r] Error: No repository specified or repository "%REPO%" does not exist.
 
 :USAGE
-ECHO Usage: merge repo from to [-c or -cp] [-2]
-ECHO -c will commit the merge locally directly if possible
-ECHO -cp will commit and push to the remote in one step if possible
-ECHO By default, the script will switch to the first repo (FROM)
-ECHO after merging. Supply -2 as last argument, to switch to the second afterwards.
-ECHO NOTE on submodules: This script does not modify submodules in any way!
+writein [gr] Usage: [y] merge repo from to [-c] or [-cp] [-2]
+writein [y] -c [gr] will commit the merge locally directly if possible
+writein [y] -cp [gr] will commit and push to the remote in one step if possible
+writein [gr] By default, the script will switch to the first repo [y] (from)
+writein [gr] after merging. Supply [y] -2 [gr] as last argument, to switch to the second afterwards.
+writein [gr] NOTE on submodules: This script does not modify submodules in any way!
 
 :END
 ECHO --- Finished "%REPO%" ---

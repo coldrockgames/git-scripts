@@ -16,19 +16,19 @@ IF NOT EXIST %REPO% GOTO ERROR
 cd %REPO%
 IF [%2]==[] GOTO PULLALL
 
-ECHO Pulling "%REPO%/%2"...
+writein [gr] Pulling [y] "%REPO%/%2" [] ...
 git pull -v --no-rebase --no-edit "origin" %2
 GOTO SUBS
 
 :PULLALL
-ECHO Pulling "%REPO%" (full)...
+writein [gr] Pulling [y] "%REPO%" (full) [] ...
 git pull -v --no-rebase --no-edit --all
 GOTO SUBS
 
 :ERROR
-ECHO Error: No repository specified or repository "%REPO%" does not exist.
-ECHO Usage: pull repo [branch]
-ECHO If branch is specified only this branch will be pulled.
+writein [r] Error: No repository specified or repository "%REPO%" does not exist.
+writein [gr] Usage: [y] pull repo [branch]
+writein [gr] If branch is specified only this branch will be pulled.
 GOTO FINISHLINE
 
 :SUBS
