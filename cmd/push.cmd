@@ -57,13 +57,13 @@ IF [%ADD_FIRST%]==[a] GOTO ADD_FIRST
 GOTO BEGIN
 
 :PULL_FIRST
-ECHO Performing pull-first operation...
+writein [gr] Performing pull-first operation...
 CALL pull.cmd %REPO%
 IF [%ADD_FIRST%]==[a] GOTO ADD_FIRST
 GOTO BEGIN
 
 :ADD_FIRST
-ECHO Performing add-first operation...
+writein [gr] Performing add-first operation...
 CALL add.cmd %REPO%
 
 :BEGIN
