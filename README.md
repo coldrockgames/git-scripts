@@ -19,6 +19,7 @@ There's also a `pdf` cheatsheet available with a short help for each of the avai
 
 # Setting up your scripts
 
+## Install the Prerequisites
 ### 1. Install Git
 If you haven't already installed Git, do so now, best from the original site at https://git-scm.com/.
 
@@ -28,7 +29,11 @@ https://tortoisegit.org/
 
 It is totally optional to install TortoiseGit, but you can't use the `diff` and `resolve` scripts, if you skip this step.
 
-### 3. Clone this repository
+### 3. Install the .net Runtime
+Some of the commandline tools (like mgrep) require .net to be installed on your computer.
+You can get it [here from Microsoft](https://dotnet.microsoft.com/en-us/download).
+
+## Clone this repository
 After cloning the repository, simply double-click the `install-scripts.cmd` file and follow the instructions on-screen.
 
 This script will create a shortcut on your desktop, pre-configured for your working folder, with all PATH variables set (temporarily, only in this script. It will _not_ modify any of your system configurations!).
