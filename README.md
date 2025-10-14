@@ -30,7 +30,7 @@ https://tortoisegit.org/
 It is totally optional to install TortoiseGit, but you can't use the `diff` and `resolve` scripts, if you skip this step.
 
 ### 3. Install the .net Runtime
-Some of the commandline tools (like mgrep) require .net to be installed on your computer.
+Some of the commandline tools (like mgrep) require .net to be installed on your computer.\
 You can get it [here from Microsoft](https://dotnet.microsoft.com/en-us/download).
 
 ## Clone this repository
