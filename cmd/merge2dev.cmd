@@ -7,10 +7,16 @@ IF [%PERSONALBRANCH%]==[] GOTO ERROR
 IF [%DEVBRANCH%]==[] GOTO ERROR
 
 ECHO Merging %REPO% from %PERSONALBRANCH% to %DEVBRANCH%...
-CALL merge %REPO% %PERSONALBRANCH% %DEVBRANCH% -cp
+CALL merge %REPO% %PERSONALBRANCH% %DEVBRANCH%
 
 CALL resolve.cmd %REPO%
 
+SET PUSH=
+SET /P PUSH=All conflicts resolved? Push and Continue y/n?
+IF [%PUSH%]==[n] GOTO ABORTED
+
+CALL push.cmd %REPO% "merge2dev done"
+CALL switch.cmd %REPO% %PERSONALBRANCH%
 GOTO END
 
 :ERROR
@@ -21,5 +27,9 @@ ECHO Usage: merge2me repo
 
 :END
 writein [g] --- Finished [y] "%REPO%" [g] ---
+GOTO FINISHSILENT
+
+:ABORTED
+writein [r] Operation aborted.
 
 :FINISHSILENT
