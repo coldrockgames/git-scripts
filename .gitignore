@@ -349,3 +349,7 @@ jsfilelist.json
 jsfilelist.jx
 imgui.ini
 hotreload.json
+
+# Godot 4+ specific ignores
+.godot/
+/android/
