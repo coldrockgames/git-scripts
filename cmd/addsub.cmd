@@ -28,9 +28,9 @@ ECHO Example: **SCRIPT** gdx-escape gdx-platform-module platform
 
 :END
 writein [g] --- Finished [y] "%REPO%" [g] ---
-GOTO ENDIMMEDIATE
+GOTO ENDIMMIDIATE
 
 :ENDBLOCKED
 ECHO THIS SCRIPT MAY NOT RUN! Use the identity.cmd script to set up a clone identity!
 
-:ENDIMMEDIATE
+:ENDIMMIDIATE
