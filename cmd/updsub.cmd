@@ -4,8 +4,6 @@ SET FILTER=
 
 IF [%REPO%]==[] GOTO ERROR
 IF [%REPO%]==[all] GOTO ALL
-IF [%REPO%]==[and] GOTO AND
-IF [%REPO%]==[gdx] GOTO GDX
 IF NOT EXIST %REPO% GOTO ERROR
 
 cd %REPO%
@@ -18,8 +16,8 @@ GOTO END
 
 :ERROR
 ECHO Error: No repository specified or repository "%REPO%" does not exist.
-ECHO Usage: updsub repo [branch]
-ECHO If branch is specified only this branch will be pulled.
+ECHO Usage: updsub repo 
+ECHO If repo is "all", all subs of all local repositories will be updated.
 GOTO FINISHLINE
 
 :SUBS
@@ -31,16 +29,6 @@ git submodule foreach "git merge"
 cd..
 CALL push.cmd %REPO% "submodule update"
 GOTO FINISHLINE
-
-:AND
-ECHO --- RUNNING SUBMODULE-UPDATE ON ANDROID REPOS ---
-SET FILTER=and-
-GOTO ALL
-
-:GDX
-ECHO --- RUNNING SUBMODULE-UPDATE ON LIBGDX REPOS ---
-SET FILTER=gdx-
-GOTO ALL
 
 :ALL
 FOR /D %%G in ("%FILTER%*") DO CALL updsub.cmd %%~nxG
