@@ -1,8 +1,15 @@
 *.yy linguist-language=Game Maker Language
 *.yy linguist-generated=true
  
-# force LF for metadata files for merge simplicity
+# GameMaker LF
 *.gml text eol=lf
 *.yy text eol=lf
 *.yyp text eol=lf
 *.json text eol=lf
+
+# Godot LF
+*.godot text=auto eol=lf
+*.gd text=auto eol=lf
+*.gd.uid text=auto eol=lf
+*.tscn text=auto eol=lf
+plugin.cfg text=auto eol=lf
