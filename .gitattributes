@@ -1,6 +1,7 @@
 *.yy linguist-language=Game Maker Language
 *.yy linguist-generated=true
- 
+*.gd linguist-language=GDScript
+
 # GameMaker LF
 *.gml text eol=lf
 *.yy text eol=lf
