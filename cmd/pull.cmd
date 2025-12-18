@@ -27,14 +27,18 @@ GOTO SUBS
 
 :ERROR
 writein [r] Error: No repository specified or repository "%REPO%" does not exist.
-writein [gr] Usage: [y] pull repo [branch]
+writein [gr] Usage: [y] pull repo [branch] [submodule-branch=main]
 writein [gr] If branch is specified only this branch will be pulled.
+writein [gr] Specify a [y] submodule-branch [gr] only, if you want to checkout
+writein [gr] a different branch than [y] main [gr] of the submodules.
 GOTO FINISHLINE
 
 :SUBS
 IF NOT EXIST .gitmodules GOTO END
-ECHO Processing submodules in %REPO%...
-git submodule foreach "git checkout master"
+SET SUBBRANCH=%3
+IF [%SUBBRANCH%]==[] SET SUBBRANCH=main
+ECHO Processing submodules in %REPO% (checkout-branch: %SUBBRANCH%)...
+git submodule foreach "git checkout %SUBBRANCH%"
 git submodule foreach "git fetch"
 git submodule foreach "git merge"
 cd..
