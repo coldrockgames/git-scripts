@@ -13,4 +13,6 @@
 *.gd text=auto eol=lf
 *.gd.uid text=auto eol=lf
 *.tscn text=auto eol=lf
+*.import text=auto eol=lf
+*.tres text=auto eol=lf
 plugin.cfg text=auto eol=lf
