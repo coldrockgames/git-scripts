@@ -366,3 +366,8 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# DBeaver / Eclipse ignores
+*.lock
+*.log
+.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi.backup
