@@ -15,4 +15,4 @@
 *.tscn text=auto eol=lf
 *.import text=auto eol=lf
 *.tres text=auto eol=lf
-plugin.cfg text=auto eol=lf
+*.cfg text=auto eol=lf
