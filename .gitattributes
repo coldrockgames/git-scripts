@@ -2,11 +2,14 @@
 *.yy linguist-generated=true
 *.gd linguist-language=GDScript
 
+# data formats
+*.json text=auto eol=lf
+*.xml text=auto eol=lf
+
 # GameMaker LF
-*.gml text eol=lf
-*.yy text eol=lf
-*.yyp text eol=lf
-*.json text eol=lf
+*.gml text=auto eol=lf
+*.yy text=auto eol=lf
+*.yyp text=auto eol=lf
 
 # Godot LF
 *.godot text=auto eol=lf
