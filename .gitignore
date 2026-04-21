@@ -350,6 +350,14 @@ jsfilelist.jx
 imgui.ini
 hotreload.json
 
+# Obsidian
+.trash/
+.obsidian/app.json
+.obsidian/appearance.json
+.obsidian/graph.json
+.obsidian/hotkeys.json
+.obsidian/workspace.json
+
 # Godot 4+ specific ignores
 .godot/
 /android/
