@@ -1,4 +1,4 @@
-![coldrock-banner-itch-960x110](https://github.com/user-attachments/assets/2b8c07be-5c83-4f21-9b38-6df178758918)
+![coldrock-banner-itch-960x110](https://github.com/coldrockgames/.github/blob/main/public_images/banner.png)
 
 # <img width="64" height="64" alt="git-scripts-icon" src="https://github.com/user-attachments/assets/ae89328f-cbbc-4a08-9b3c-7c09ec296d7e" /> git-scripts
 A set of scripts to make git-life easier.
