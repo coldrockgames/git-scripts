@@ -5,6 +5,10 @@ SET WILDCARD=*
 SET PULL_FIRST=
 SET ADD_FIRST=a
 
+IF [%REPO%]==[] GOTO ERROR
+IF [%2]==[] GOTO ERROR
+SET "MSG=%~2"
+
 IF [%REPO%]==[*] GOTO ALL
 
 ECHO %REPO% | findstr /C:"*" >nul
@@ -12,10 +16,6 @@ IF NOT ERRORLEVEL 1 (
 	SET WILDCARD=%REPO%
 	GOTO ALL
 )
-
-IF [%REPO%]==[] GOTO ERROR
-IF [%2]==[] GOTO ERROR
-SET "MSG=%~2"
 
 REM AUTO-PREPENT company/repo if starts with # for a commit mark
 REM Do this only for coldrockgames company
@@ -98,7 +98,7 @@ writein [y] -a [gr] and [y] -p [gr] can also be specified as a single [y] -ap [g
 GOTO FINISHLINE
 
 :ALL
-FOR /D %%G in (%WILDCARD%) DO CALL push.cmd %%~nxG "%MSG%" %3 %4
+FOR /D %%G in (%WILDCARD%) DO CALL "%~f0" %%~nxG "%MSG%" %3 %4
 GOTO FINISHSILENT
 
 :FINISHLINE
