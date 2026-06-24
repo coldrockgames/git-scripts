@@ -21,6 +21,7 @@ REM AUTO-PREPENT company/repo if starts with # for a commit mark
 REM Do this only for coldrockgames company
 SETLOCAL ENABLEDELAYEDEXPANSION
 SET ISCOLDROCK=0
+IF NOT EXIST .\%REPO%\.git\config GOTO NOCOLDROCK
 FOR /F "DELIMS=" %%A IN (.\%REPO%\.git\config) DO (
     SET "LINE=%%A"
     ECHO !LINE! | FINDSTR /I "coldrockgames" >NUL
@@ -31,12 +32,10 @@ FOR /F "DELIMS=" %%A IN (.\%REPO%\.git\config) DO (
 
 IF [%ISCOLDROCK%]==[0] GOTO NOCOLDROCK
 writein [g] This is a coldrockgames repository
-SET SUFFIX=
-IF [%REPO%]==[gms-ennead] SET SUFFIX=-tasks
 SET FIRSTCHAR=%MSG:~0,1%
 IF "%FIRSTCHAR%"=="#" (
-    writein [y] Adding coldrockgames/%REPO%%SUFFIX% to commit message
-	SET "MSG=coldrockgames/%REPO%%SUFFIX%%MSG%"
+    writein [y] Adding coldrockgames/%REPO% to commit message
+	SET "MSG=coldrockgames/%REPO%%MSG%"
 )
 
 :NOCOLDROCK
