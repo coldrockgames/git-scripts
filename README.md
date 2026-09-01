@@ -1,6 +1,6 @@
-![coldrock-banner-itch-960x110](https://github.com/coldrockgames/.github/blob/main/public_images/repo-banner-trans.png)
+<img width="960" height="110" alt="repo-banner-git-scripts-trans" src="https://github.com/user-attachments/assets/f21e8213-1d9f-4ce2-a7f4-2c7709ccddaf" />
 
-# <img width="64" height="64" alt="git-scripts-icon" src="https://github.com/user-attachments/assets/ae89328f-cbbc-4a08-9b3c-7c09ec296d7e" /> git-scripts
+# git-scripts
 A set of scripts to make git-life easier.
 
 These are the scripts we use internally at _coldrock.games_. The repository is public to allow my students and course participants to gain access to them.
