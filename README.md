@@ -1,4 +1,4 @@
-<img width="960" height="110" alt="repo-banner-git-scripts-trans" src="https://github.com/user-attachments/assets/f21e8213-1d9f-4ce2-a7f4-2c7709ccddaf" />
+<img width="960" height="128" alt="repo-banner-git-scripts-trans" src="https://github.com/user-attachments/assets/aaf3619c-18d7-415d-a574-e9b9bf6d6e7f" />
 
 # git-scripts
 A set of scripts to make git-life easier.
