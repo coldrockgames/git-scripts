@@ -1,5 +1,7 @@
 <img width="960" height="128" alt="repo-banner-git-scripts-trans" src="https://github.com/user-attachments/assets/aaf3619c-18d7-415d-a574-e9b9bf6d6e7f" />
 
+![Godot Version](https://img.shields.io/badge/.net-10.0-blue.svg) ![License](https://img.shields.io/badge/License-MIT-green.svg) ![Version](https://img.shields.io/badge/Version-2609.1-orange)
+
 # git-scripts
 A set of scripts to make git-life easier.
 
